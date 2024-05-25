@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'DetailScreen.dart';
 
 class Festival {
   final String title;
@@ -68,7 +69,10 @@ class FestivalListPage extends StatelessWidget {
               ),
               onTap: () {
                 // 축제 상세 페이지로 이동
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => DetailScreen()),
+                );
               },
             ),
           );
