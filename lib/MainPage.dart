@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'category1_screen.dart';
-import 'category2_screen.dart';
 import 'CalendarPage.dart';
-import 'category4_screen.dart';
 import 'home_screen.dart';
 
 class MainPage extends StatefulWidget {
