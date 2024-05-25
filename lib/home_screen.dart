@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'festivalInsert.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -34,6 +35,10 @@ class HomeScreen extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               // 버튼을 눌렀을 때 실행할 코드
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InsertScreen()),
+              );
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white, backgroundColor: Colors.purple, // 텍스트 색상
