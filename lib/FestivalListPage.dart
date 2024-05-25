@@ -68,6 +68,7 @@ class FestivalListPage extends StatelessWidget {
               ),
               onTap: () {
                 // 축제 상세 페이지로 이동
+
               },
             ),
           );

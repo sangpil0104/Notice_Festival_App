@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => InsertScreen()),
+                      MaterialPageRoute(builder: (context) => Insergit tScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
