@@ -5,6 +5,7 @@ class InsertScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: CategoryPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -15,8 +16,8 @@ class CategoryPage extends StatefulWidget {
 }
 
 class _CategoryPageState extends State<CategoryPage> {
-  TextEditingController _titleController = TextEditingController(); // 제목 텍스트 필드 컨트롤러
-  TextEditingController _contentController = TextEditingController(); // 내용 텍스트 필드 컨트롤러
+  TextEditingController _titleController = TextEditingController();
+  TextEditingController _contentController = TextEditingController();
 
   String _selectedTime = '시간대';
   String _selectedScale = '규모';
@@ -28,33 +29,30 @@ class _CategoryPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your App'),
+        title: Text('축제 등록'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // 제목 입력 텍스트 필드
             TextField(
               controller: _titleController,
               decoration: InputDecoration(
-                hintText: 'Enter title...',
+                hintText: '제목을 입력하시오.',
                 border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 10),
-            // 내용 입력 텍스트 필드
             TextField(
               controller: _contentController,
               maxLines: 5,
               decoration: InputDecoration(
-                hintText: 'Enter content...',
+                hintText: '내용을 입력하시오.',
                 border: OutlineInputBorder(),
               ),
             ),
             SizedBox(height: 10),
-            // 드롭다운 메뉴들
             _buildDropdown('시간대', ['시간대', '아침', '점심', '저녁', '밤'], (value) {
               setState(() {
                 _selectedTime = value!;
@@ -75,12 +73,34 @@ class _CategoryPageState extends State<CategoryPage> {
                 _selectedPrice = value!;
               });
             }),
-            _buildDropdown('지역', ['지역', '서울', '부산', '대구', '인천'], (value) {
+            _buildDropdown('지역', ['지역', '☆★☆대전★☆★', '서울', '부산', '대구', '인천'], (value) {
               setState(() {
                 _selectedRegion = value!;
               });
             }),
             SizedBox(height: 10),
+            // 사진 업로드 버튼
+            ElevatedButton(
+              onPressed: () {
+                // 사진 업로드 버튼 눌렀을 때 동작
+                _uploadImage();
+              },
+              child: Text('사진 업로드'),
+            ),
+            SizedBox(height: 10),
+            // 등록 버튼
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // 등록 버튼 눌렀을 때 동작
+                    _submitData();
+                  },
+                  child: Text('등록'),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -107,9 +127,18 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
+  void _uploadImage() {
+    // 여기에 사진 업로드 로직을 구현합니다.
+    // 이미지를 업로드하는 코드를 작성하세요.
+  }
+
+  void _submitData() {
+    // 여기에 등록 버튼이 눌렸을 때 데이터를 서버에 전송하고 등록하는 로직을 구현합니다.
+    // 데이터를 서버에 전송하고 등록하는 코드를 작성하세요.
+  }
+
   @override
   void dispose() {
-    // 페이지가 dispose 될 때 컨트롤러도 함께 dispose 되도록 함
     _titleController.dispose();
     _contentController.dispose();
     super.dispose();

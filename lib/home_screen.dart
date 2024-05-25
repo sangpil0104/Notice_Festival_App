@@ -39,7 +39,6 @@ class HomeScreen extends StatelessWidget {
         Center(
           child: ElevatedButton(
             onPressed: () {
-              // 버튼을 눌렀을 때 실행할 코드
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => InsertScreen()),
