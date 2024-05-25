@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "269720179383",
+    "project_id": "sograhackathon",
+    "storage_bucket": "sograhackathon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269720179383:android:2ac274da2c067402667332",
+        "android_client_info": {
+          "package_name": "com.example.sogra_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDesBVVHAwvemJZ5--S_d1zJsMVw9Fv0eA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
