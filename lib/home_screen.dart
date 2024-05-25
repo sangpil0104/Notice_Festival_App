@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'festivalInsert.dart';
+import 'register_festival_page.dart';
 
 import 'SearchScreen.dart';
 

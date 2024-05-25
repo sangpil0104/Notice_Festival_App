@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sogra_application/home_screen.dart';
+import 'FestivalListPage.dart';
 
 class InsertScreen extends StatelessWidget {
   @override
@@ -78,16 +80,30 @@ class _CategoryPageState extends State<CategoryPage> {
                 _selectedRegion = value!;
               });
             }),
+
             SizedBox(height: 10),
-            // 사진 업로드 버튼
-            ElevatedButton(
-              onPressed: () {
-                // 사진 업로드 버튼 눌렀을 때 동작
-                _uploadImage();
-              },
-              child: Text('사진 업로드'),
+
+            // 점선 직사각형 (이미지 업로드 틀)
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 0.5
+                ),
+                borderRadius: BorderRadius.circular(4),
+                shape: BoxShape.rectangle,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text('Drop your image here'),
+                    Icon(Icons.cloud_upload, size: 50),
+                  ],
+                ),
+              ),
             ),
-            SizedBox(height: 10),
+
             // 등록 버튼
             Expanded(
               child: Align(
@@ -127,14 +143,12 @@ class _CategoryPageState extends State<CategoryPage> {
     );
   }
 
-  void _uploadImage() {
-    // 여기에 사진 업로드 로직을 구현합니다.
-    // 이미지를 업로드하는 코드를 작성하세요.
-  }
-
   void _submitData() {
     // 여기에 등록 버튼이 눌렸을 때 데이터를 서버에 전송하고 등록하는 로직을 구현합니다.
-    // 데이터를 서버에 전송하고 등록하는 코드를 작성하세요.
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => FestivalListPage()),
+    );
   }
 
   @override
