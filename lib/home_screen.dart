@@ -25,12 +25,12 @@ class HomeScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0), // 둥근 모서리
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0), // 패딩
+              padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30.0), // 패딩
             ),
             child: const Text(
               '축제 찾기',
               style: TextStyle(
-                fontSize: 20.0, // 텍스트 크기
+                fontSize: 40.0, // 텍스트 크기
                 fontWeight: FontWeight.bold, // 텍스트 굵기
               ),
             ),
@@ -52,12 +52,12 @@ class HomeScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0), // 둥근 모서리
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0), // 패딩
+              padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 30.0), // 패딩
             ),
             child: const Text(
               '축제 등록',
               style: TextStyle(
-                fontSize: 20.0, // 텍스트 크기
+                fontSize: 40.0, // 텍스트 크기
                 fontWeight: FontWeight.bold, // 텍스트 굵기
               ),
             ),
