@@ -3,6 +3,8 @@ import 'package:sogra_application/home_screen.dart';
 import 'FestivalListPage.dart';
 
 class InsertScreen extends StatelessWidget {
+  const InsertScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
