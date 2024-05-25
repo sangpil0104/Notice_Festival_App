@@ -2,24 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sogra_application/home_screen.dart';
 import 'FestivalListPage.dart';
 
-class InsertScreen extends StatelessWidget {
-  const InsertScreen({super.key});
 
+class InsertScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CategoryPage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  _InsertScreenState createState() => _InsertScreenState();
 }
 
-class CategoryPage extends StatefulWidget {
-  @override
-  _CategoryPageState createState() => _CategoryPageState();
-}
-
-class _CategoryPageState extends State<CategoryPage> {
+class _InsertScreenState extends State<InsertScreen> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _contentController = TextEditingController();
 
@@ -34,6 +23,12 @@ class _CategoryPageState extends State<CategoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('축제 등록'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // 뒤로가기
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -90,7 +85,7 @@ class _CategoryPageState extends State<CategoryPage> {
               decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.black,
-                  width: 0.5
+                  width: 0.5,
                 ),
                 borderRadius: BorderRadius.circular(4),
                 shape: BoxShape.rectangle,
