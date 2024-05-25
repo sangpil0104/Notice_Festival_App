@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SearchScreen.dart';
+import 'search_festival_page.dart';
 import 'register_festival.dart';
 
 class HomeScreen extends StatelessWidget {

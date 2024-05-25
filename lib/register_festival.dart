@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:sogra_application/CalendarPage.dart';
+import 'package:sogra_application/MainPage.dart';
 import 'FestivalListPage.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class InsertScreen extends StatefulWidget {
   const InsertScreen({Key? key}) : super(key: key);
@@ -10,6 +14,10 @@ class InsertScreen extends StatefulWidget {
 }
 
 class _InsertScreenState extends State<InsertScreen> {
+  final picker = ImagePicker();
+  List<XFile?> multiImage = []; // 갤러리에서 여러 장의 사진을 선택해서 저장할 변수
+  List<XFile?> images = []; // 가져온 사진들을 보여주기 위한 변수
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
 
@@ -50,53 +58,66 @@ class _InsertScreenState extends State<InsertScreen> {
               const SizedBox(height: 10),
               _buildDropdown('시간대', ['시간대', '아침', '점심', '저녁', '밤'], (value) {
                 setState(() {
+                  // 시간대 선택값을 처리하는 로직 추가 가능
                 });
               }),
               _buildDropdown('규모', ['규모', '소규모', '중규모', '대규모'], (value) {
                 setState(() {
+                  // 규모 선택값을 처리하는 로직 추가 가능
                 });
               }),
               _buildDropdown('연령', ['연령', '어린이', '청소년', '성인', '노인'], (value) {
                 setState(() {
+                  // 연령 선택값을 처리하는 로직 추가 가능
                 });
               }),
               _buildDropdown('가격', ['가격', '무료', '유료'], (value) {
                 setState(() {
+                  // 가격 선택값을 처리하는 로직 추가 가능
                 });
               }),
-              _buildDropdown('지역', ['지역', '☆★☆대전★☆★', '서울', '부산', '대구', '인천'], (value) {
+              _buildDropdown('지역', ['지역', '☆★☆대전★☆★', '서울', '부산', '대구', '인천'],
+                  (value) {
                 setState(() {
+                  // 지역 선택값을 처리하는 로직 추가 가능
                 });
               }),
 
               const SizedBox(height: 10),
 
-              // 점선 직사각형 (이미지 업로드 틀)
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 0.5,
-                  ),
-                  borderRadius: BorderRadius.circular(4),
-                  shape: BoxShape.rectangle,
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text('Drop your image here'),
-                      Icon(Icons.cloud_upload, size: 50),
+                  margin: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlueAccent,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 0.5,
+                          blurRadius: 5)
                     ],
                   ),
-                ),
-              ),
+                  child: IconButton(
+                      onPressed: () async {
+                        multiImage = await picker.pickMultiImage();
+                        setState(() {
+                          //multiImage를 통해 갤러리에서 가지고 온 사진들은 리스트 변수에 저장되므로 addAll()을 사용해서 images와 multiImage 리스트를 합쳐줍니다.
+                          images.addAll(multiImage);
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.add_photo_alternate_outlined,
+                        size: 30,
+                        color: Colors.white,
+                      ))),
 
               // 등록 버튼
               ElevatedButton(
                 onPressed: () {
                   // 등록 버튼 눌렀을 때 동작
                   _submitData();
+                  showToast("축제가 등록되었습니다.");
                 },
                 child: const Text('등록'),
               ),
@@ -107,7 +128,8 @@ class _InsertScreenState extends State<InsertScreen> {
     );
   }
 
-  Widget _buildDropdown(String title, List<String> items, ValueChanged<String?> onChanged) {
+  Widget _buildDropdown(
+      String title, List<String> items, ValueChanged<String?> onChanged) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: DropdownButtonFormField<String>(
@@ -131,7 +153,19 @@ class _InsertScreenState extends State<InsertScreen> {
     // 여기에 등록 버튼이 눌렸을 때 데이터를 서버에 전송하고 등록하는 로직을 구현합니다.
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => FestivalListPage()),
+      MaterialPageRoute(builder: (context) => MainPage()),
+    );
+
+  }
+
+  void showToast(String msg) {
+    Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.black,
+      textColor: Colors.white,
+      fontSize: 16.0,
     );
   }
 
