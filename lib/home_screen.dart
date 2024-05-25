@@ -40,23 +40,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-<<<<<<< HEAD
-        ),
-        Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => InsertScreen()),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, backgroundColor: Colors.purple, // 텍스트 색상
-              shadowColor: Colors.purpleAccent, // 그림자 색상
-              elevation: 10, // 그림자 높이
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0), // 둥근 모서리
-=======
           Center(
             child: ElevatedButton(
               onPressed: () {
@@ -74,7 +57,6 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30.0), // 둥근 모서리
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0), // 패딩
->>>>>>> 76487d76d0d926e3b7aa8a8472196a4695581ace
               ),
               child: const Text(
                 '축제 등록',
