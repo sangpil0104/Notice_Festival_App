@@ -21,6 +21,7 @@ class _CalendarPageState extends State<CalendarPage> {
       // 상단 앱 바 설정
       appBar: AppBar(
         title: Text('축제 일정 확인'), // 앱 바의 타이틀 설정
+        backgroundColor: Color(0xFFB39DDB),
       ),
       // 달력을 표시하는 TableCalendar 위젯을 body에 추가
       body: TableCalendar(
