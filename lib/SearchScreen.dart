@@ -79,7 +79,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       _selectedPrice = value!;
                     });
                   }),
-                  _buildDropdown('지역', ['지역', '서울', '부산', '대구', '인천'], (value) {
+                  _buildDropdown('지역', ['지역', '☆★☆대전★☆★','서울', '부산', '대구', '인천'], (value) {
                     setState(() {
                       _selectedRegion = value!;
                     });
