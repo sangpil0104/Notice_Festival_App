@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'FestivalListPage.dart';
+
 class SearchScreen extends StatefulWidget {
   @override
   _SearchScreenState createState() => _SearchScreenState();
@@ -38,13 +40,15 @@ class _SearchScreenState extends State<SearchScreen> {
                 SizedBox(width: 8),
                 ElevatedButton(
                   onPressed: () {
-                    // 검색 버튼 클릭 시 동작
-                    print('검색어: ${_searchController.text}');
-                    print('시간대: $_selectedTime');
-                    print('규모: $_selectedScale');
-                    print('연령: $_selectedAge');
-                    print('가격: $_selectedPrice');
-                    print('지역: $_selectedRegion');
+                    // 검색 버튼 클릭 시 FestivalListPage로 이동
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FestivalListPage(
+
+                        ),
+                      ),
+                    );
                   },
                   child: Text('검색'),
                 ),
