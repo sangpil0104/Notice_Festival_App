@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'category1_screen.dart';
 import 'category2_screen.dart';
-import 'category3_screen.dart';
+import 'CalendarPage.dart';
 import 'category4_screen.dart';
 import 'home_screen.dart';
 
@@ -12,14 +12,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    Category1Screen(),
-    Category2Screen(),
     HomeScreen(),
-    Category3Screen(),
-    Category4Screen(),
+    CalendarPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -32,30 +29,18 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard App'),
+        title: const Text('Festival Search App'),
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category 1',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category 2',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.category),
-            label: 'Category 3',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: 'Category 4',
+            label: 'Calendar',
           ),
         ],
         currentIndex: _selectedIndex,
