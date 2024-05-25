@@ -6,7 +6,7 @@ class Festival {
   final String ageGroup;
   final String cost;
   final String location;
-  final String date;
+  final String slot;
   final String time;
   final String imagePath;
 
@@ -15,7 +15,7 @@ class Festival {
     required this.ageGroup,
     required this.cost,
     required this.location,
-    required this.date,
+    required this.slot,
     required this.time,
     required this.imagePath,
   });
@@ -24,12 +24,12 @@ class Festival {
 class FestivalListPage extends StatelessWidget {
   final List<Festival> festivals = [
     Festival(
-      title: 'Spring Festival',
-      ageGroup: 'All Ages',
-      cost: 'Free',
-      location: 'Central Park',
-      date: '2024-06-01',
-      time: '10:00 AM - 5:00 PM',
+      title: '대전 0시 축제',
+      ageGroup: '전 연령',
+      cost: '무료',
+      location: '대전',
+      slot: '밤',
+      time: '20:00 PM - 00:00 AM',
       imagePath: 'assets/대전 0시 축제.jpg',
     ),
     // 추가적인 축제 정보를 여기에 추가하세요.
@@ -60,10 +60,10 @@ class FestivalListPage extends StatelessWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Age Group: ${festival.ageGroup}'),
-                  Text('Cost: ${festival.cost}'),
-                  Text('Location: ${festival.location}'),
-                  Text('Date: ${festival.date}'),
+                  Text('연령: ${festival.ageGroup}'),
+                  Text('가격: ${festival.cost}'),
+                  Text('지역: ${festival.location}'),
+                  Text('Date: ${festival.slot}'),
                   Text('Time: ${festival.time}'),
                 ],
               ),
