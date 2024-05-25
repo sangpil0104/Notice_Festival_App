@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'MainPage.dart';
-import 'FestivalListPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,3 +17,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
